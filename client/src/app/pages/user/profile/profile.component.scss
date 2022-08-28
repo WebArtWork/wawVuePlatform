@@ -1,0 +1,69 @@
+@import 'angular';
+
+:host {
+    padding: 20px;
+}
+/*  PROFILE STYLE  */
+.profile {
+    &__header {
+        @include text-default(0, 23px, 500, 20px, var(--c-text-primary));
+        @include flexBox(flex, null, space-between, center, null);
+        border-radius: var(--b-radius);
+    }
+	&__footer {
+		margin-top: 20px;
+		@include flexBox(flex, null, space-between, center, wrap);
+		@include bp-max(sm) {
+			flex-direction: column;
+			align-items: center;
+			.profile__logout {
+				order: 2;
+				margin-top: 20px;
+			}
+		}
+	}
+    &__logout {
+        .w-btn {
+            margin: 0;
+            @include flexBox(flex, null, space-between, center, null);
+        }
+        .material-icons {
+            margin-right: 10px;
+        }
+    }
+}
+
+/*  AVATAR PHOTO STYLE  */
+.avatar {
+    border-radius: var(--b-radius-img);
+    border: 1px solid var(--c-border);
+    position: relative;
+    margin: 0 auto;
+    padding: 3px;
+    &._profile {
+        width: 60px;
+        height: 60px;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--b-radius-img);
+    }
+    &__upload {
+        cursor: pointer;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: 24px;
+        height: 24px;
+        border-radius: var(--b-radius-img);
+        background: var(--c-primary);
+        @include flexBox(flex, null, center, center, null);
+        transition: var(--transition);
+    }
+    &__icon {
+        color: var(--c-white);
+        font-size: var(--fs);
+    }
+}

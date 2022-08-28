@@ -1,0 +1,24 @@
+// ===== BASE STYLE =====
+html {
+    font-size: var(--fs);
+    overflow: hidden;
+    height: 100%;
+}
+body {
+    font-family: var(--ff-base);
+    color: var(--c-text-primary);
+    line-height: 1.4;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+/* === PAGE LAYOUT === */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--padding);
+    max-width: var(--container);
+    width: 100%;
+}

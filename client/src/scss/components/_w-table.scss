@@ -1,0 +1,85 @@
+// table
+.w-table-wrap {
+    background: var(--c-bg-secondary);
+    box-shadow: var(--c-shadow);
+    border-radius: var(--b-radius);
+    padding: 20px;
+    width: 100%;
+	transition: var(--transition);
+    .w-table {
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed;
+        &__th {
+            padding: 15px 10px;
+            text-align: center;
+            border-right: 2px solid var(--c-border);
+            border-bottom: 0.5px solid var(--c-border);
+            font-size: var(--fs);
+            line-height: var(--fs) + 8px;
+            letter-spacing: var(--letter-spacing);
+            color: var(--c-text-primary);
+            text-overflow: ellipsis;
+            overflow: hidden;
+			text-transform: capitalize;
+			font-weight: 500;
+            &:last-child {
+                border-right: none;
+            }
+            @include bp-max(md) {
+                font-size: var(--fs) - 4px;
+            }
+        }
+        &__td {
+            cursor: pointer;
+            padding: 15px 10px;
+            text-align: center;
+            vertical-align: middle;
+            border-right: 2px solid var(--c-border);
+            border-bottom: 2px dashed var(--c-border);
+            font-size: var(--fs) - 2px;
+            line-height: var(--fs) + 8px;
+            letter-spacing: var(--letter-spacing);
+            color: var(--c-text-primary);
+            word-break: break-word;
+            @include bp-max(md) {
+                font-size: var(--fs) - 4px;
+            }
+        }
+    }
+    .w-table-body__tr:last-child {
+        .w-table__td {
+            border-bottom: none;
+        }
+    }
+    .w-table-body__tr {
+        .w-table__td:last-child,
+        .w-table__th:last-child {
+            border-right: none;
+            border-right: none;
+        }
+        @include bp-max(md) {
+            &:nth-child(even) {
+                background: rgba(0, 0, 0, 0.04);
+            }
+        }
+    }
+}
+@include bp-max(xl) {
+    .xl-hide {
+        display: none;
+    }
+    .xl-br-none {
+        border-right: none !important;
+    }
+}
+@include bp-max(sm) {
+    .sm-hide {
+        display: none;
+    }
+    .sm-br-none {
+        border-right: none !important;
+    }
+}

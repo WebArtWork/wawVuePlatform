@@ -1,0 +1,18 @@
+#html .modal {
+	padding: 20px;
+    &-content {
+        background: var(--c-bg-secondary);
+        border-radius: var(--b-radius);
+        border: 1px solid var(--c-border);
+    }
+	.close:hover {
+		color: var(--c-text-secondary);
+	}
+}
+
+
+#html body._modal-small .modal-content {
+	max-width: 500px;
+	width: 100%;
+	margin: 20px auto;
+}

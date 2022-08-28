@@ -2,7 +2,8 @@
 	"name": "wawNgx",
 	"version": "1.0.0",
 	"scripts": {
-		"start": "node server.js"
+		"start": "waw",
+		"serve": "waw start"
 	},
 	"private": true,
 	"dependencies": {

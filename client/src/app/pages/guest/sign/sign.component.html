@@ -1,0 +1,57 @@
+<div class="auth-wrapper">
+	<div class="auth">
+		<div class="auth__title">Sign In / Sign Up</div>
+		<form class="auth__forms" (ngSubmit)="submit()">
+			<div class="w-forms">
+				<span class="w-forms__title">Email:</span>
+				<input
+					(keydown.enter)="!user.password && password_focus()"
+					[(ngModel)]="user.email"
+					class="w-forms__input"
+					placeholder="Email"
+					type="text"
+					name="email"
+					#email
+				/>
+			</div>
+			<div class="w-forms">
+				<span class="w-forms__title">Password:</span>
+				<div class="w-forms__input-block">
+					<input
+						class="w-forms__input"
+						[type]="show_password && 'text' || 'password'"
+						placeholder="Password"
+						name="password"
+						[(ngModel)]="user.password"
+						#password
+					/>
+					<span class="w-forms__toggle" (click)="show_password = !show_password">
+						<i *ngIf="show_password" class="icon-visibility">visibility</i>
+						<i *ngIf="!show_password">visibility_off</i>
+					</span>
+				</div>
+				<span
+					class="w-forms__level"
+					[class._sky]="ui.level(user.password) === 1"
+					[class._orange]="ui.level(user.password) === 2"
+					[class._green]="ui.level(user.password) === 3"
+				>
+					Level: {{ui.level(user.password)}}
+				</span>
+			</div>
+			<div class="w-forms" *ngIf="reseting">
+				<span class="w-forms__title">Code:</span>
+				<input
+					[(ngModel)]="user.code"
+					class="w-forms__input"
+					placeholder="Code"
+					type="text"
+					name="code"
+				/>
+			</div>
+			<div class="auth__btn">
+				<button class="w-btn _primary" type="submit">Let's go</button>
+			</div>
+		</form>
+	</div>
+</div>

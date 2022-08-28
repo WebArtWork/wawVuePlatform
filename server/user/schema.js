@@ -3,7 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 var schema = mongoose.Schema({
 	is: {},
 	data: {},
-	thumb: {type: String, default: '/assets/user.png'},
+	thumb: {type: String, default: '/assets/default.png'},
 	email: {type: String, unique: true, sparse: true, trim: true},
 	reg_email: {type: String, unique: true, sparse: true, trim: true},
 	password: String,
@@ -21,7 +21,7 @@ schema.methods.validPassword = function(password) {
 	return bcrypt.compareSync(password, this.password);
 };
 schema.methods.create = function(obj, user, sd) {
-	this.thumb = obj.thumb || '/assets/user.png';
+	this.thumb = obj.thumb || '/assets/default.png';
 	this.reg_email = obj.email;
 	this.email = obj.email;
 	this.name = obj.name;

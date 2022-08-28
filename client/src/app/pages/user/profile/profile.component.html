@@ -1,0 +1,37 @@
+<div class="profile container w-card _pd">
+	<div class="profile__header w-card__header">
+		<div>Profile Settings</div>
+		<div>
+			<div class="avatar _profile">
+				<img class="avatar__img" width="50" height="50" [src]="us.user.thumb || 'assets/default.png'" alt="">
+				<label class="avatar__upload" for="userAvatarUrl"><i class="material-icons avatar__icon">edit</i></label>
+			</div>
+		</div>
+	</div>
+	<div class="profile__body">
+
+
+
+		<div class="w-forms">
+			<span class="w-forms__title">Name</span>
+			<input class="w-forms__input" type="text" name="name" placeholder="Your name" [(ngModel)]="us.user.name" (ngModelChange)="us.update();">
+		</div>
+		<div class="w-forms">
+			<span class="w-forms__title">Phone number</span>
+			<input class="w-forms__input" type="tel" name="number" placeholder="Phone number" [(ngModel)]="us.user.data['phone']" (ngModelChange)="us.update();">
+		</div>
+		<div class="w-forms">
+			<span class="w-forms__title">Bio</span>
+			<textarea class="w-forms__textarea" placeholder="Bio" [(ngModel)]="us.user.data['bio']" (ngModelChange)="us.update();"></textarea>
+		</div>
+		<div class="profile__footer">
+			<div class="profile__logout">
+				<button class="w-btn _danger" (click)="us.logout();"><span class="material-icons">logout</span>Logout</button>
+			</div>
+			<div class="profile__password">
+				<button class="w-btn _link" (click)="change_password()">Change Password</button>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="wrapper" id="wrapper">
+	<nav class="nav" (clickOutside)="show = false">
+		<ul class="nav__ul container" [class._active]="show">
+			<li class="nav__li">
+				<a
+					routerLinkActive="_activeLink"
+					(click)="show = false"
+					routerLink="/profile"
+					class="nav__a"
+				>
+					<span class="material-icons">home</span>
+				</a>
+			</li>
+			<li class="nav__li" *ngIf="us.user.is['admin']">
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/admin/users"
+					(click)="show = false"
+					class="nav__a"
+				>
+					<span class="material-icons">people</span>
+				</a>
+			</li>
+			<li class="nav__li _burger">
+				<a class="nav__toggle" (click)="show=!show" [class._active]="show">
+					<span class="nav__toggle-line"></span>
+				</a>
+			</li>
+		</ul>
+		<div class="nav__burger" [class._active]="show">
+			<div class="nav__burger-list">
+				<div class="theme-switch">
+					<span class="material-icons" *ngIf="!mode" (click)="set('dark')">dark_mode</span>
+					<span class="material-icons" *ngIf="mode" (click)="set()">light_mode</span>
+				</div>
+				<a class="nav__burger-link nav__burger-user" routerLink="/profile">
+					<img
+						[src]="us.user.thumb || 'assets/default.png'"
+						alt="Profile Picture"
+						class="avatar__img"
+						height="50"
+						width="50"
+					/>
+					<div class="name">{{us.user.name || "Profile"}}</div>
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div class="main">
+		<div class="fade" [@showInOut]="show" *ngIf="show"></div>
+		<router-outlet></router-outlet>
+	</div>
+</div>

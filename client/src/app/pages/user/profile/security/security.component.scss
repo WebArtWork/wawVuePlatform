@@ -1,0 +1,13 @@
+@import 'angular';
+h3 {
+	@include text-default(0, 23px, 500, 20px, var(--c-text-primary));
+	margin-bottom: 15px;
+}
+.w-btn {
+	margin: 0;
+	margin-top: 20px;
+}
+.w-forms{
+	display: block;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,54 @@
+<div class="users container w-card _pd">
+	<div class="users__header w-card__header">Users (Admin)</div>
+    <form (ngSubmit)="us.create(new_user); new_user = us.empty()" class="users-field">
+        <label class="w-forms">
+            <span class="w-forms__title">New User</span>
+            <input class="w-forms__input" type="text" [(ngModel)]="new_user.email" name="new user" placeholder="Email">
+        </label>
+        <button class="w-btn _primary" type="submit" [disabled]="!ui.valid(new_user.email)">Create</button>
+    </form>
+    <div class="w-table-wrap">
+        <table class="w-table">
+            <thead class="w-table-header">
+                <tr class="w-table-header__tr">
+                    <th class="w-table__th user">User</th>
+                    <th class="w-table__th email">Email</th>
+                    <th class="w-table__th role" *ngFor="let role of us.roles; let i = index;">{{role}}</th>
+                    <th class="w-table__th actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="w-table-body">
+                <tr class="w-table-body__tr" *ngFor="let user of us.users|search:search:'name email'">
+                    <td class="w-table__td user">
+                        <div class="w-table-user">
+                            <div class="w-table-user__img">
+								<img [src]="user.avatarUrl || 'assets/default.png'" alt="User Avatar" height="50" width="50"></div>
+                            <div class="w-table-user__text">{{user.name}}</div>
+                        </div>
+                    </td>
+                    <td class="w-table__td email">{{user.email}}</td>
+                    <td class="w-table__td role" *ngFor="let role of us.roles; let i = index;">
+                        <label class="w-checkbox">
+                            <input class="w-checkbox__input" type="checkbox" [(ngModel)]="user.is[role]" (ngModelChange)="us.save(user);" name="role name">
+                            <div class="w-checkbox__body">
+                                <span class="w-checkbox__svg"><svg width="12px" height="10px">
+                                        <use xlink:href="#check"></use>
+                                    </svg></span>
+                            </div>
+                        </label>
+                    </td>
+                    <td class="w-table__td actions">
+                        <i class="material-icons" (click)="us.delete(user);">delete</i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Checkbox SVG Sprites -->
+<svg class="w-checkbox__svg-icon">
+    <symbol id="check" viewbox="0 0 12 10">
+        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+    </symbol>
+</svg>

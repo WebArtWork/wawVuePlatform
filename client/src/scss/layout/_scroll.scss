@@ -1,0 +1,15 @@
+// ===== SCROLL CUSTOMIZE =====
+*::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px var(--c-shadow);
+    background-color: var(--c-white);
+    display: none;
+}
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: var(--c-white);
+}
+* ::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px var(--c-basic);
+    background-color: var(--c-basic);
+}
