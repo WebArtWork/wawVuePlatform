@@ -41,26 +41,15 @@ module.exports = async function (waw) {
 	/*
 	*	Serve Client
 	*/
-	waw.serve(process.cwd() + '/client/dist/app');
-	const client = process.cwd() + '/client/dist/app/index.html';
-	if (fs.existsSync(client)) {
-		waw.url(client, '/admin/users /profile /auth');
-	} else {
-		console.log("You don't have client build, careful with committing without that");
-	}
-	/*
-	*	Serve Template
-	*/
-	waw.serve(process.cwd() + '/template', {
-		prefix: '/template'
-	});
-	waw.build(process.cwd() + '/template', 'index');
-	waw.url(process.cwd() + '/template/dist/index.html', '/', {
-		title: waw.config.name,
-		description: waw.config.description,
-		keywords: waw.config.keywords,
-		image: 'https://webart.work/template/img/spider.svg'
-	});
+	// 
+	// TODO need to make dist vue client to serve
+	// waw.serve(process.cwd() + '/client/dist/app');
+	// const client = process.cwd() + '/client/dist/app/index.html';
+	// if (fs.existsSync(client)) {
+	// 	waw.url(client, '/admin/users /profile /auth');
+	// } else {
+	// 	console.log("You don't have client build, careful with committing without that");
+	// }
 	/*
 	*	Set is on users from config
 	*/

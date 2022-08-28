@@ -1,6 +1,6 @@
 {
-	"name": "wawNgx",
-	"description": "Default waw project with Angular client and Template landing",
+	"name": "waw Vue Platform",
+	"description": "Default waw project with Vue Nuxt client",
 	"keywords": "Default Project",
 	"license": "MIT",
 	"icon": "/client/src/favicon.ico",
@@ -14,7 +14,6 @@
 	},
 	"modules": {
 		"template": "waw",
-		"angular": "waw",
 		"core": "waw",
 		"sem": "waw"
 	},
