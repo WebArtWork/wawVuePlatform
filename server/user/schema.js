@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-var schema = mongoose.Schema({
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt-nodejs');
+const schema = mongoose.Schema({
 	is: {},
 	data: {},
 	thumb: {type: String, default: '/assets/default.png'},
@@ -8,18 +8,19 @@ var schema = mongoose.Schema({
 	reg_email: {type: String, unique: true, sparse: true, trim: true},
 	password: String,
 	name: String,
-	resetPin: Number,
-	resetCounter: Number,
-	resetCreate: Number
+	resetPin: Number
 }, {
 	minimize: false
 });
+
 schema.methods.generateHash = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
+
 schema.methods.validPassword = function(password) {
 	return bcrypt.compareSync(password, this.password);
 };
+
 schema.methods.create = function(obj, user, sd) {
 	this.thumb = obj.thumb || '/assets/default.png';
 	this.reg_email = obj.email;
@@ -28,4 +29,5 @@ schema.methods.create = function(obj, user, sd) {
 	this.data = {};
 	this.is = {}
 }
+
 module.exports = mongoose.model('User', schema);

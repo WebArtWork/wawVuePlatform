@@ -1,0 +1,11 @@
+{
+    "name": "Form",
+    "router": "index.js",
+    "crud": {
+        "update": {
+            "keys": ["title", "formId", "active", "components"]
+        },
+        "delete": [""]
+    },
+    "dependencies": {}
+}

@@ -1,5 +1,5 @@
 {
-	"name": "waw Vue Platform",
+	"name": "wawNgx",
 	"version": "1.0.0",
 	"scripts": {
 		"start": "waw",
@@ -7,7 +7,7 @@
 	},
 	"private": true,
 	"dependencies": {
-		"mongoose": "^5.11.16",
+		"mongoose": "^5.13.17",
 		"waw": "*"
 	}
 }

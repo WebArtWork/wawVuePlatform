@@ -1,33 +1,34 @@
-const User = require(__dirname + '/schema.js');
-module.exports = async function(waw) {
+const User = require('./schema');
+module.exports = async waw => {
 	waw.file('user', {
-		rename: (req)=>{
-			return req.user._id+'.jpg'
-		},
+		rename: req => req.user._id+'.jpg',
 		ensure: waw.ensure,
 		process: async (req, res) => {
 			const user = await User.findOne({
 				_id: req.user._id
 			});
+
 			user.thumb = req.files[0].url;
+
 			await user.save();
+
 			res.json(user.thumb);
 		}
 	});
-	var select = function(){
-		return '-password -resetPin';
-	}
+
+	const select = () => '-password -resetPin';
+
 	waw.crud('user', {
 		get: {
 			ensure: waw.next,
-			query: function(){
+			query: () => {
 				return {};
 			},
 			select
 		},
 		fetch: [{
 			ensure: waw.next,
-			query: function(req){
+			query: req => {
 				return {
 					_id: req.body._id
 				}
@@ -35,7 +36,7 @@ module.exports = async function(waw) {
 			select
 		},{
 			name: 'me',
-			query: function(req){
+			query: req => {
 				return {
 					_id: req.user._id
 				}
@@ -43,7 +44,7 @@ module.exports = async function(waw) {
 			select
 		}],
 		update: [{
-			query: function(req, res, next) {
+			query: req => {
 				return {
 					_id: req.user._id
 				}
@@ -52,7 +53,7 @@ module.exports = async function(waw) {
 		}, {
 			name: 'admin',
 			ensure: waw.role('admin'),
-			query: function(req, res, next) {
+			query: req => {
 				return {
 					_id: req.body._id
 				}
@@ -62,7 +63,7 @@ module.exports = async function(waw) {
 		delete: {
 			name: 'admin',
 			ensure: waw.role('admin'),
-			query: function(req, res, next) {
+			query: req => {
 				return {
 					_id: req.body._id
 				}

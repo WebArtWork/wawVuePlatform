@@ -1,14 +1,14 @@
 {
-	"name": "waw Vue Platform",
-	"description": "Default waw project with Vue Nuxt client",
+	"name": "wawVuePlatform",
+	"description": "Default waw project with Vue client and Template landing",
 	"keywords": "Default Project",
 	"license": "MIT",
-	"icon": "/client/src/favicon.ico",
-	"prefix": "wawNgx",
+	"icon": "/template/img/favicon.ico",
+	"prefix": "wawVue",
 	"port": 8080,
 	"session": true,
 	"mongo": {
-		"host": "localhost",
+		"host": "127.0.0.1",
 		"port": 27017,
 		"db": "waw"
 	},
