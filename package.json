@@ -1,13 +1,22 @@
 {
-	"name": "wawNgx",
-	"version": "1.0.0",
-	"scripts": {
-		"start": "waw",
-		"serve": "waw start"
-	},
-	"private": true,
-	"dependencies": {
-		"mongoose": "^5.13.17",
-		"waw": "*"
-	}
+  "name": "nuxt-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "start": "waw",
+    "serve": "waw start"
+  },
+  "devDependencies": {
+    "@types/node": "^18",
+    "nuxt": "^3.5.1",
+    "mongoose": "^5.13.17",
+    "waw": "*"
+  }
 }
+
+
